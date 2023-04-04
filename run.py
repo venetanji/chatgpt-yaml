@@ -1,4 +1,3 @@
-# import python yaml module
 import yaml
 from dotenv import load_dotenv
 import urllib.request
@@ -7,12 +6,7 @@ import openai
 import logging
 load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
-
-
-# load config.yaml
-config = yaml.safe_load(open('example.yaml','r'))
-print(config)
-
+logging.basicConfig(filename="log.txt", level=logging.DEBUG)
 
 class Template:
 
