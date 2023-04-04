@@ -6,8 +6,8 @@ frequency_penalty: 0
 messages:
   - role: system
     content: >
-      You are a researcher following strictly the scientific method.
-      Your task is to extract the reserach question from paper abstracts.
+      You are a helpful assistant
   - role: user
     content: >
+      Who was Ada Lovelace?
       
