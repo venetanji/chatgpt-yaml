@@ -9,6 +9,10 @@ load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
 logging.basicConfig(filename="log.txt", level=logging.DEBUG)
 
+parser = argparse.ArgumentParser(
+                    prog='ChatGpt Yaml',
+                    description='Runs chatbot completions from yaml file')
+
 parser.add_argument('--template','-t', type=str, default="example")
 parser.add_argument('--outfile','-o', type=str, default="output.txt")
 
@@ -20,7 +24,7 @@ class Template:
         self.completion = None
 
     def run(self):
-        self.completion = openai.ChatCompletion.create(**config)
+        self.completion = openai.ChatCompletion.create(**self.config)
         logging.debug("Completion: "+ str(self.completion))
         return self.completion.choices[0]['message']['content']
 
